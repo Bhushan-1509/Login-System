@@ -4,11 +4,13 @@
     <script src="js/script.js"></script>
 </head>
 <?php
+    include "components/_dbconnect.php";
+    
     $error = false;
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
         if(isset($_POST['email']) && isset($_POST['password'])){
-            include "components/_dbconnect.php";
+            //include "components/_dbconnect.php";
             $host = constant("HOSTNAME");
             $username = constant("USERNAME");
             $password = constant("PASSWORD");
