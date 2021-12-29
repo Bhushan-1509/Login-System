@@ -2,6 +2,9 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <?php
+include_once "components/_dbconnect.php";
+include_once "components/_filter_input.php";
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['first-name']) && isset($_POST['last-name']) && isset($_POST['email']) && isset($_POST['password'])) {
     $firstName = $_POST['first-name'];
     $lastName = $_POST['last-name'];
@@ -18,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['first-name']) && isset
     $passwordHash = password_hash($password,PASSWORD_DEFAULT);
     
     // $sqlQuery = "INSERT INTO `$DATABASE.users_records_db` VALUE(first_name,last_name,email,password) ($firstName,$lastName,$email,$password)";
-    include_once "components/_dbconnect.php";
+    //include_once "components/_dbconnect.php";
     $host = constant("HOSTNAME");
     $username = constant("USERNAME");
     $password = constant("PASSWORD");
