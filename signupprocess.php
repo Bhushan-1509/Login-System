@@ -6,6 +6,7 @@ include_once "components/_dbconnect.php";
 include_once "components/_filter_input.php";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['first-name']) && isset($_POST['last-name']) && isset($_POST['email']) && isset($_POST['password'])) {
+    
     $firstName = $_POST['first-name'];
     $lastName = $_POST['last-name'];
     $email = $_POST['email'];
@@ -34,17 +35,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['first-name']) && isset
     $noOfRows = $queryResult->num_rows;
 
     if ($noOfRows == 0) {
+        
         $sqlQuery = "INSERT INTO `users_records_db` (`id`, `first_name`, `last_name`, `email`, `password`) VALUES (NULL, '$firstName', '$lastName', '$email', '$passwordHash');";
         $result = $connection->query($sqlQuery);
 
         // executeQuery($sqlQuery);
         if ($result != false) {
+            
             echo '<div class="alert alert-success" role="alert">
             <h4 class="alert-heading">Successfully created your account !</h4>
             
           </div>';
         } 
         else {
+            
             echo '<div class="alert alert-danger" role="alert">
             <h4 class="alert-heading">Failed to to create your account !</h4>
           </div>';
