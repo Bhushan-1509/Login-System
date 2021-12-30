@@ -10,6 +10,7 @@
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
         if(isset($_POST['email']) && isset($_POST['password'])){
+                        
             //include "components/_dbconnect.php";
             $host = constant("HOSTNAME");
             $username = constant("USERNAME");
@@ -29,12 +30,14 @@
             $resultantRow = $result->fetch_array();
 
             if((strcmp($email,$resultantRow['email']) == 0) && $passwordVerification == true){
+                               
                 session_start(); 
                 $_SESSION['username'] =  $resultantRow['first_name'];
                 $_SESSION['id'] = $resultantRow['id'];
                 header("location:welcome.php");
             }
             else{
+                
                 echo '<div class="alert alert-danger" role="alert">
                 <h4 class="alert-heading">It seems like you have not created account yet !</h4>
                 </div>';
