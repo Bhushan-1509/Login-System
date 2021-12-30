@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['first-name']) && isset
     $password = $_POST['password'];
     
     
-    include "components/_filter_input.php";
+//    include "components/_filter_input.php";
     
     $firstName = filter_data($firstName);
     $lastName = filter_data($lastName);
